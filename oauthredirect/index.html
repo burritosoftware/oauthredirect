@@ -10,11 +10,11 @@ if (error == "access_denied") {
 const urlParams = new URLSearchParams(window.location.search);
 const expiry = urlParams.get('expires_in');
 const googleToken = new URLSearchParams(location.hash.slice(1)).get("access_token")
-var backto = 'shortcuts://run-shortcut?name=Conversations&input='+encodeURIComponent(JSON.stringify({"token": googleToken, "expiry": expiry})
+var backto = 'shortcuts://run-shortcut?name=Conversations&input='+encodeURIComponent(JSON.stringify({"token": googleToken, "expiry": expiry}))
 window.location.replace(backto);
 }
 function openShortcuts(){
-    window.location.replace=backto;
+    window.location.replace(backto);
  }
 </script>
 </head>
