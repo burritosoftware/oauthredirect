@@ -1,11 +1,26 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
 <script>
 const error = new URLSearchParams(location.hash.slice(1)).get("error");
 if (error == "access_denied") {
-  window.location.replace('shortcuts://run-shortcut?name=Conversations&input='+encodeURIComponent(JSON.stringify({"error": error, })));
+  var backto = 'shortcuts://run-shortcut?name=Conversations&input='+encodeURIComponent(JSON.stringify({"error": error, }))
+  window.location.replace(backto);
 } else {
 const urlParams = new URLSearchParams(window.location.search);
 const expiry = urlParams.get('expires_in');
 const googleToken = new URLSearchParams(location.hash.slice(1)).get("access_token")
-window.location.replace('shortcuts://run-shortcut?name=Conversations&input='+encodeURIComponent(JSON.stringify({"token": googleToken, "expiry": expiry})));
+var backto = 'shortcuts://run-shortcut?name=Conversations&input='+encodeURIComponent(JSON.stringify({"token": googleToken, "expiry": expiry})
+window.location.replace(backto);
 }
+function openShortcuts(){
+    window.location.replace=backto;
+ }
 </script>
+</head>
+<body>
+<h1>Conversations</h1>
+<h3>Please open Shortcuts to complete login.</h3>
+<button onclick="openShortcuts();">Open Shortcuts</button>
+</body>
+</html>
