@@ -1,5 +1,5 @@
 <script>
 const urlParams = new URLSearchParams(window.location.search);
 const googleCode = urlParams.get('code');
-window.location.replace('shortcuts://run-shortcut?name=Conversations&input={"code": "${googleCode}"}');
+window.location.replace('shortcuts://run-shortcut?name=Conversations&input='+encodeURIComponent(JSON.stringify({"code": googleCode})));
 </script>
