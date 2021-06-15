@@ -1,18 +1,18 @@
 <html>
 <head>
-<title>Conversations</title>
+<title>AccountKit</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
 <script defer>
   let backto;
   const error = new URLSearchParams(location.hash.slice(1)).get("error");
   if (error == "access_denied") {
-    backto = 'shortcuts://run-shortcut?name=Conversations&input=text&text='+encodeURIComponent(JSON.stringify({"error": error, }))
+    backto = 'shortcuts://run-shortcut?name=AccountKit&input=text&text='+encodeURIComponent(JSON.stringify({"error": error, }))
   } else {
     const urlParams = new URLSearchParams(window.location.search);
     const expiry = urlParams.get('expires_in');
-    const googleToken = new URLSearchParams(location.hash.slice(1)).get("access_token")
-    backto = 'shortcuts://run-shortcut?name=Conversations&input=text&text='+encodeURIComponent(JSON.stringify({"token": googleToken, "expiry": expiry}))
+    const oAuthToken = new URLSearchParams(location.hash.slice(1)).get("access_token")
+    backto = 'shortcuts://run-shortcut?name=AccountKit&input=text&text='+encodeURIComponent(JSON.stringify({"token": oAuthToken, "expiry": expiry}))
   }
   function openShortcuts(){
     window.location.replace(backto);
@@ -21,9 +21,9 @@
 </script>
 </head>
 <body>
-<h1>Conversations</h1>
-<h3>Please tap Open on the prompt that appears to sign in to Conversations.</h3>
+<h1>AccountKit</h1>
+<h3>Please tap Open on the prompt that appears to sign in to the shortcut.</h3>
 <p>Cancelled the prompt?<br>Tap the button below to sign in.</p>
-<button onclick="openShortcuts();">Sign In to Conversations</button>
+<button onclick="openShortcuts();">Sign In with AccountKit</button>
 </body>
 </html>
