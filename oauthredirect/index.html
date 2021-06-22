@@ -15,7 +15,7 @@
 //    const oAuthToken = new URLSearchParams(location.hash.slice(1)).get("access_token")
 //    backto = 'shortcuts://run-shortcut?name=AccountKit&input=text&text='+encodeURIComponent(JSON.stringify({"token": oAuthToken, "expiry": expiry}))
     backto = 'shortcuts://run-shortcut?name=AccountKit&input=text&text='+encodeURIComponent(JSON.stringify({"token": discordCode}))
-  }
+//  }
   function openShortcuts(){
     window.location.replace(backto);
   }
