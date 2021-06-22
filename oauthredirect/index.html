@@ -4,15 +4,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
 <script defer>
-  let backto;
-  const error = new URLSearchParams(location.hash.slice(1)).get("error");
-  if (error == "access_denied") {
-    backto = 'shortcuts://run-shortcut?name=AccountKit&input=text&text='+encodeURIComponent(JSON.stringify({"error": error, }))
-  } else {
+//  let backto;
+//  const error = new URLSearchParams(location.hash.slice(1)).get("error");
+//  if (error == "access_denied") {
+//    backto = 'shortcuts://run-shortcut?name=AccountKit&input=text&text='+encodeURIComponent(JSON.stringify({"error": error, }))
+//  } else {
     const urlParams = new URLSearchParams(window.location.search);
-    const expiry = urlParams.get('expires_in');
-    const oAuthToken = new URLSearchParams(location.hash.slice(1)).get("access_token")
-    backto = 'shortcuts://run-shortcut?name=AccountKit&input=text&text='+encodeURIComponent(JSON.stringify({"token": oAuthToken, "expiry": expiry}))
+//    const expiry = urlParams.get('expires_in');
+    const discordCode = urlParams.get('code');
+//    const oAuthToken = new URLSearchParams(location.hash.slice(1)).get("access_token")
+//    backto = 'shortcuts://run-shortcut?name=AccountKit&input=text&text='+encodeURIComponent(JSON.stringify({"token": oAuthToken, "expiry": expiry}))
+    backto = 'shortcuts://run-shortcut?name=AccountKit&input=text&text='+encodeURIComponent(JSON.stringify({"token": discordCode}))
   }
   function openShortcuts(){
     window.location.replace(backto);
